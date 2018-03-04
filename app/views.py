@@ -75,6 +75,12 @@ def load_user(id):
 @login_required
 def secure_page():
     return render_template('secure_page.html')
+    
+@app.route("/logout")
+def logout():
+    logout_user()
+    flash("Log out sucessful", "success")
+    return redirect(url_for('home'))
 
 ###
 # The functions below should be applicable to all Flask apps.
